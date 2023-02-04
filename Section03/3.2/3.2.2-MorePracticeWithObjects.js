@@ -19,24 +19,92 @@ const fourProps = {
 // Access a value in the "collection" property
 console.log(fourProps.collection);
 // Practice with nested Arrays and Objects
+/*
+  3.2.2-MorePracticeWithObjects
+  ========================================
+*/
+
+// bracket and dot notation
+//-------------------------
+
+const key = "1";
+const obj = {
+  key: "the key is 'key'",
+  1: "the key is 1"
+};
+
+// what will the following lines print?
+console.log(obj[key]);
+console.log(obj["key"]);
+console.log(obj["1"]);
+
+
+/*
+Create an object with at least four properties, each with a different data type
+Name one of the four properties "collection" and set its value to an Array or Object
+*/
+
+const something = {
+  collection: {
+    love: "Self",
+    hate: 0,
+    collection: [1, 2, 3],
+    truth: true
+  },
+  veggies: "broccoli, spinach, squash",
+  meat: false,
+  snacks: 3
+};
+
+// access a value in in "collection" property
+  console.log("Always love your", something.collection.love);
+
+
+// Nested Arrays and Objects
+//===========================
+
+// below is an array of strings with 5 elements
 const keys = ["key", "1", "method", "favorites", "list"];
-// Add a method to an Object
-obj.method = function() {
+
+// below is an object with 2x key-value pairs
+const newObj = {
+  key: "the key is 'key'",
+  1: "the key is 1"
+};
+
+// adding a method to the object `newObj`
+newObj.method = function() {
   return "the key is 'method' and it calls refers to a function";
 };
-// Fill in your favorite movie, number and color below
-obj["favorites"] = {
-  movie: "",
-  number: 0,
-  color: ""
+
+// add a nested object key-value pair to the object `newObj`
+
+// fill in your favorite movie and color below
+newObj["favorites"] = {
+  movie: "The Shining",
+  number: 19,
+  color: "gray"
 };
-// Add a list (a.k.a array) to an Object
-obj.list = ["a", "b", 3, "d", ["e", 4, 5], { f: 6 }];
-// Using the 'for...in' loop to iterate over 'obj' object ...
-// how many lines will the following statement print?
-// what do you expect to see on each line?
-for (let key in keys) {
-  console.log(`Key is: ${key} and value is: ${obj[key]}`);
+
+// add a complex array to the object `newObj`
+newObj.list = ["a", "b", 3, "d", ["e", 4, 5], { f: 6 }];
+
+/*
+How many lines will the following for...of statement print?
+What do you expect to see on each line?
+*/
+
+for (let key of keys) {
+  console.log(`The key is: ${key}, and value is: ${newObj[key]}`);
 }
-// Use a template literal to print a sentence about your favorite things
-// Access the values "b", 4, and 6 from obj.list
+
+// use a template literal to print a sentence about your favorite movie and color
+console.log(
+  `My favorite movie is ${newObj.favorites.movie}, and my favorite color is ${newObj.favorites.color}.`
+);
+
+// access the values "b", 4, and 6 from obj.list
+
+console.log("List 1 = ", newObj.list[1]);
+console.log("List 4.1 =", newObj.list[4][1]);
+console.log("List 5.f = ", newObj.list[newObj.list.length - 1].f);
